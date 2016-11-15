@@ -55,7 +55,7 @@ INSERT INTO Hosts VALUES('Netherlands', 1928, 'Olympics');
 INSERT INTO Hosts VALUES('France', 1924, 'Olympics');
 INSERT INTO Hosts VALUES('Belgium', 1920, 'Olympics');
 INSERT INTO Hosts VALUES('Sweden', 1912, 'Olympics');
-INSERT INTO Hosts VALUES('England', 1908 'Olympics');
+INSERT INTO Hosts VALUES('England', 1908, 'Olympics');
 INSERT INTO Hosts VALUES('USA', 1904, 'Olympics');
 INSERT INTO Hosts VALUES('France', 1900, 'Olympics');
 INSERT INTO Hosts VALUES('Greece', 1896, 'Olympics');
