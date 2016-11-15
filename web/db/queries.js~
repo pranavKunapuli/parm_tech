@@ -1,0 +1,19 @@
+var db = require('./mysql');
+var squel = require('squel');
+
+var queryAllThreeWins = squel.select().from('Competes_In c').field('DISTINCT c.cname').where('c.stage = \'Gold\'')
+    .where('c.tname = \'Olympics\'')
+    .where('c.cname IN ?', squel.select().from('Competes_In c').field('DISTINCT c.cname').where('c.stage = \'Final\'')
+	   .where('c.result = \'W\'').where('c.tname = \'FIFA\'').where(squel.select().from('Competes_In c').field('DISTINCT c.cname')
+									.where('c.stage = \'Final\'')
+									.where('c.result = \'W\'').where('c.tname = \'UEFA\''))).toString();
+
+var query = db.connect(function() {
+	db.getAllThreeWins(function (err, rows) {
+		console.log(rows);
+	    });
+});
+
+module.exports = {
+    queryAllThreeWins: query
+}
