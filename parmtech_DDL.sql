@@ -62,7 +62,7 @@ CREATE TABLE Competes_In (
 	stage		varchar(50),
 	score		varchar(10),
 	result		varchar(1),
-	PRIMARY KEY (cname, year, tname),
+	PRIMARY KEY (cname, year, tname, stage),
 	FOREIGN KEY (cname, year) REFERENCES Has_Team (cname, year),
 	FOREIGN KEY (tname) REFERENCES Tournament (tname),
 	CHECK (result IN ('W','L'))
