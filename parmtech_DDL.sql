@@ -8,7 +8,7 @@ CREATE TABLE Has_Team (
 	cname		varchar(50),
 	year		int,
 	PRIMARY KEY (cname, year),
-	FOREIGN KEY (cname) REFERENCES Country,
+	FOREIGN KEY (cname) REFERENCES Country (cname)
 		ON DELETE CASCADE
 );
 
@@ -22,8 +22,8 @@ CREATE TABLE Coaches (
 	cname		varchar(50),
 	year		int,
 	PRIMARY KEY (coname, cname, year),
-	FOREIGN KEY (coname) REFERENCES Coach,
-	FOREIGN KEY (cname, year) REFERENCES Has_Team
+	FOREIGN KEY (coname) REFERENCES Coach (coname),
+	FOREIGN KEY (cname, year) REFERENCES Has_Team (cname, year)
 );
 
 CREATE TABLE Player (
@@ -37,8 +37,8 @@ CREATE TABLE Plays_For (
 	cname		varchar(50),
 	year		int,
 	PRIMARY KEY (pname, cname, year),
-	FOREIGN KEY (pname) REFERENCES Player,
-	FOREIGN KEY (cname, year) REFERENCES Has_Team
+	FOREIGN KEY (pname) REFERENCES Player (pname),
+	FOREIGN KEY (cname, year) REFERENCES Has_Team (cname, year)
 );
 
 CREATE TABLE Tournament (
@@ -51,8 +51,8 @@ CREATE TABLE Hosts (
 	year		int,
 	tname		varchar(10),
 	PRIMARY KEY (cname, year, tname),
-	FOREIGN KEY (cname) REFERENCES Country,
-	FOREIGN KEY (tname) REFERENCES Tournament
+	FOREIGN KEY (cname) REFERENCES Country (cname),
+	FOREIGN KEY (tname) REFERENCES Tournament (tname)
 );
 
 CREATE TABLE Competes_In (
@@ -63,8 +63,8 @@ CREATE TABLE Competes_In (
 	score		varchar(10),
 	result		varchar(1),
 	PRIMARY KEY (cname, year, tname),
-	FOREIGN KEY (cname, year) REFERENCES Has_Team,
-	FOREIGN KEY (tname) REFERENCES Tournament,
+	FOREIGN KEY (cname, year) REFERENCES Has_Team (cname, year),
+	FOREIGN KEY (tname) REFERENCES Tournament (tname),
 	CHECK (result IN ('W','L'))
 );
 
