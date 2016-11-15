@@ -1,0 +1,92 @@
+﻿Rachel Chan, Mia Froehling-Gallier,
+Anish Khanorkar, Pranav Kunapuli
+11/14/2016
+Milestone #3
+
+
+Database MySQL Info:
+* Host: cis550project.csukxhkxofbf.us-east-1.rds.amazonaws.com
+* Username: parmtech
+* PW: parmtechCIS550
+* Port: 3306
+* mysql -h  cis550project.csukxhkxofbf.us-east-1.rds.amazonaws.com -P 3306 -u parmtech -p
+
+
+Sample Questions:
+1. Which countries have won all three soccer tournaments?  
+	SELECT DISTINCT c.cname 
+	FROM Competes_In c 
+	WHERE c.stage='Gold' 
+	AND c.tname='Olympics' 
+	AND c.cname IN (
+		SELECT DISTINCT c.cname 
+		FROM Competes_In c 
+		WHERE c.stage='Final' 
+		AND c.result='W' 
+		AND c.tname='FIFA' 
+		AND c.cname IN (
+			SELECT DISTINCT c.cname 
+			FROM Competes_In c 
+			WHERE c.stage='Final' 
+			AND c.result='W' 
+			AND c.tname='UEFA'));
+
+
+2. Which country has won the most final rounds in tournaments? 
+	SELECT cname, COUNT(*)
+	FROM Competes_In 
+	WHERE  result IN (‘W’, ’n’) AND stage IN (‘Gold’, ‘Final’)
+	GROUP BY  cname,  tname, year 
+	HAVING COUNT(*) = (SELECT COUNT(*) FROM Competes_In WHERE results IN (‘W’, ‘n’) AND stage IN (‘Gold’, ‘Final’) GROUP BY cname,  tname, year ORDER BY COUNT(*) DESC LIMIT 1);
+
+
+3. Which country/countries has /have won the final round in the least amount tournaments? 
+	SELECT cname, COUNT(*)
+	FROM Competes_In 
+	WHERE  result IN (‘W’, ’n’) AND stage IN (‘Gold’, ‘Final’)
+	GROUP BY  cname,  tname, year 
+	HAVING COUNT(*) = (SELECT COUNT(*) FROM Competes_In WHERE results IN (‘W’, ‘n’) AND stage IN (‘Gold’, ‘Final’) GROUP BY cname,  tname, year ORDER BY COUNT(*) ASC LIMIT 1);
+
+
+4. Which countries active since 1950 have failed to win any of the three cups?
+        SELECT cname 
+        FROM Country
+        WHERE cname NOT IN (
+                SELECT DISTINCT cname 
+                FROM Competes_In
+                WHERE year > 1950
+                AND stage IN (‘Gold’, ‘Final’)
+                AND result IN (‘W’, ’n’)
+        );
+
+
+5. Which players have played in the most teams? 
+
+    SELECT DISTINCT pname, COUNT(*) 
+	FROM Plays_For 
+	Group By pname 
+	HAVING COUNT(*) = (SELECT COUNT(*) 
+	FROM Plays_For 
+	Group By pname 
+	ORDER BY COUNT(*) DESC 
+	LIMIT 1);
+
+6. What countries have never made it to a final round? 
+        SELECT cname 
+        FROM Country
+        WHERE cname NOT IN (
+                SELECT DISTINCT cname
+                FROM Competes_In
+                WHERE stage IN (‘Final’, ‘Gold’, ‘Silver’)
+        );
+
+7. Which country has hosted the three tournaments (combined) most often?
+        SELECT cname, COUNT(*) AS num 
+        FROM Hosts
+        GROUP BY cname
+        HAVING COUNT(*) = (
+			SELECT COUNT(*) 
+			FROM Hosts 
+			GROUP BY cname 
+			ORDER BY COUNT(*) DESC 
+			LIMIT 1);
