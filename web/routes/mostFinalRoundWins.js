@@ -3,11 +3,13 @@ var router = express.Router();
 var queries = require('../db/queries');
 
 router.get('/mostFinalRoundWins', function (req, res, next) {
-	queries.getMostFinalRoundWins(function (err, rows, fields) {
+	queries.getMostFinalRoundWins(function (err, rows) {
+		console.log(err);
 		if (err) {
 			next(err);
 		} else {
-			res.send(rows, fields);
+			var title = 'Teams With The Most Tournaments';
+			res.render('displayCnames.jade', {title: title, results: rows});
 		}
 	});
 });

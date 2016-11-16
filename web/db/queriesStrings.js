@@ -17,7 +17,7 @@ var allThreeWins = squel.select().from('Competes_In c')
 	.toString();
 
 var mostFinalRoundWins = squel.select().from('Competes_In')
-	.field('DISTINCT cname, COUNT(*)')
+	.field('DISTINCT cname, COUNT(*) AS count')
 	.where('result IN (\'W\',\'n\')')
 	.where('stage IN (\'Gold\',\'Final\')')
 	.group('cname')
@@ -31,7 +31,7 @@ var mostFinalRoundWins = squel.select().from('Competes_In')
 	.toString();
 
 var leastFinalRoundWins = squel.select().from('Competes_In')
-	.field('DISTINCT cname, COUNT(*)')
+	.field('DISTINCT cname, COUNT(*) AS count')
 	.where('result IN (\'W\',\'n\')')
 	.where('stage IN (\'Gold\',\'Final\')')
 	.group('cname')

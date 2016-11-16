@@ -7,7 +7,8 @@ router.get('/hostedMost', function (req, res, next) {
 		if (err) {
 			next(err);
 		} else {
-			res.send(rows, fields);
+			var title = 'Countries that Have Hosted the Most Tournaments';
+			res.render('displayPnames.jade', {title: title, results: rows});
 		}
 	});
 });

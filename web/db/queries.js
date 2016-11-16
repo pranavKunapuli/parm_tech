@@ -2,92 +2,50 @@ var db = require('./mysql');
 
 var queryAllThreeWins = function (next) {
 	db.connect(function() {
-		db.getAllThreeWins(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getAllThreeWins(next);
 	}
 )};
 
 var queryMostFinalRoundWins = function (next) {
 	db.connect(function() {
-		db.getMostFinalRoundWins(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getMostFinalRoundWins(next);
 	}
 )};
 
-var queryMostFinalRoundWins = function (next) {
+var queryLeastFinalRoundWins = function (next) {
 	db.connect(function() {
-		db.getLeastFinalRoundWins(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getLeastFinalRoundWins(next);
 	}
 )};
 
 var queryNoWins = function (next) {
 	db.connect(function() {
-		db.getNoWins(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getNoWins(next);
 	}
 )};
 
 var queryPlayersOnMostTeams = function (next) {
 	db.connect(function() {
-		db.getPlayersOnMostTeams(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getPlayersOnMostTeams(next);
 	}
 )};
 
 var queryNoFinalsTeams = function (next) {
 	db.connect(function() {
-		db.getNoFinalsTeams(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getNoFinalsTeams(next);
 	}
 )};
 
 var queryHostedMost = function (next) {
 	db.connect(function() {
-		db.getHostedMost(function (err, rows, fields) {
-			if (err) {
-				next(err, null);
-			} else {
-				next(null, rows, fields);
-			}
-	    });
+		db.getHostedMost(next);
 	}
 )};
 
 module.exports = {
     getAllThreeWins: queryAllThreeWins,
     getMostFinalRoundWins: queryMostFinalRoundWins,
-    getLeastFinalRoundWins: queryMostFinalRoundWins,
+    getLeastFinalRoundWins: queryLeastFinalRoundWins,
     getPlayersOnMostTeams: queryPlayersOnMostTeams,
     getNoFinalsTeams: queryNoFinalsTeams,
     getHostedMost: queryHostedMost,

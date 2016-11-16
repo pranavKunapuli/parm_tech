@@ -7,7 +7,8 @@ router.get('/playersOnMostTeams', function (req, res, next) {
 		if (err) {
 			next(err);
 		} else {
-			res.send(rows, fields);
+			var title = 'Players Who Have Played On the Most Teams';
+			res.render('displayPnames.jade', {title: title, results: rows});
 		}
 	});
 });

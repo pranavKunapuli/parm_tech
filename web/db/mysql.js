@@ -32,7 +32,7 @@ var allThreeWins = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
@@ -44,7 +44,7 @@ var mostFinalRoundWins = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
@@ -56,7 +56,7 @@ var leastFinalRoundWins = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
@@ -68,7 +68,7 @@ var noWins = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
@@ -80,7 +80,7 @@ var playersOnMostTeams = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
@@ -92,7 +92,7 @@ var noFinalsTeams = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
@@ -104,7 +104,7 @@ var hostedMost = function (done) {
 		if (err) {
 			done(err);
 		} else {
-			done(rows, fields);
+			done(null, rows);
 		}
 	});
 }
