@@ -15,7 +15,7 @@ app.set('view engine', 'html');
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function (req, res) {
-  res.render('index');
+  res.render('index.jade');
 });
 
 app.use('/', allThreeWins);

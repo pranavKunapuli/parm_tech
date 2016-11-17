@@ -7,7 +7,8 @@ router.get('/leastFinalRoundWins', function (req, res, next) {
 		if (err) {
 			next(err);
 		} else {
-			res.send(rows, fields);
+			var title = 'Teams With The Least Tournament Wins';
+			res.render('displayCnames.jade', {title: title, results: rows});
 		}
 	});
 });

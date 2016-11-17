@@ -8,7 +8,7 @@ router.get('/mostFinalRoundWins', function (req, res, next) {
 		if (err) {
 			next(err);
 		} else {
-			var title = 'Teams With The Most Tournaments';
+			var title = 'Teams With The Most Tournaments Wins';
 			res.render('displayCnames.jade', {title: title, results: rows});
 		}
 	});
