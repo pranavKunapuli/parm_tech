@@ -8,11 +8,11 @@ var state = {
 
 var connect = function (done) {
 	state.pool = mysql.createPool({
-		host: 'cis550project.csukxhkxofbf.us-east-1.rds.amazonaws.com',
-		user: 'parmtech', 
+		host: '',
+		user: '', 
 		port: 3306,
-		password: 'parmtechCIS550',
-		database: 'cis550project',
+		password: '',
+		database: '',
 		connectTimeout: 60 * 60 * 1000,
 		connectionLimit: 1000,
 		acquireTimeout: 60 * 60 * 1000,
