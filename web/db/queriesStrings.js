@@ -80,6 +80,16 @@ var hostedMost = squel.select().from('Hosts')
 		.limit(1)
 	).toString();
 
+var hasCountryWonTournament = function (countryName, tourneyyy) {
+	var where1 = 'cname=' + "\'" + countryName + "\'"
+	var where2 = 'tname=' + "\'" + tourneyyy + "\'"
+	return squel.select().from('Competes_In')
+	.field('DISTINCT cname')
+	.where(where1)
+	.where(where2)
+	.where('(stage=\'Final\' AND result=\'W\') OR stage=\'Gold\'').toString();
+}   
+
 module.exports = {
 	allThreeWins: allThreeWins,
 	mostFinalRoundWins: mostFinalRoundWins,
@@ -87,5 +97,6 @@ module.exports = {
 	playersOnMostTeams: playersOnMostTeams,
 	noFinalsTeams: noFinalsTeams,
 	hostedMost: hostedMost,
+	hasCountryWonTournament: hasCountryWonTournament,
 	noWins: noWins
 }

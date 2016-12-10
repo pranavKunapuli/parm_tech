@@ -42,6 +42,18 @@ var queryHostedMost = function (next) {
 	}
 )};
 
+var queryHasCountryWonTournament = function (countryName, tournamentName, next) {
+	db.connect(function() {
+		db.getHasCountryWonTournament(countryName, tournamentName, next);
+	}
+)};
+
+var queryHowDidCountryDoInYearInTournament = function (countryName, year, tournamentName, next) {
+	db.connect(function() {
+		db.getHowDidCountryDoInYearInTournament(countryName, year, tournamentName, next);
+	}
+)};
+
 module.exports = {
     getAllThreeWins: queryAllThreeWins,
     getMostFinalRoundWins: queryMostFinalRoundWins,
@@ -49,5 +61,7 @@ module.exports = {
     getPlayersOnMostTeams: queryPlayersOnMostTeams,
     getNoFinalsTeams: queryNoFinalsTeams,
     getHostedMost: queryHostedMost,
+    getHasCountryWonTournament: queryHasCountryWonTournament,
+    getHowDidCountryDoInYearInTournament: queryHowDidCountryDoInYearInTournament,
     getNoWins: queryNoWins
 }

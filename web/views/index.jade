@@ -9,3 +9,90 @@ block content
   +nav_item("/noWinsSince1950") Teams Active Since 1950 that Have Not Won Any Tournaments
   +nav_item("/playersOnMostTeams") Players that Have played in the most teams
   +nav_item("/hostedMost") Countries that Have Hosted the Most Tournaments
+  p
+  form(name="add-estimation", method="get", action='/hasCountryWonTournament')
+    |  Has 
+    input(name='countryName', value='', placeholder='Enter Country')
+    |  Won 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    | ?    
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='howDidCountryDoInYearInTournament')
+    |  How did country
+    input(name='countryName', value='', placeholder='Enter Country')
+    |  do in year
+    input(year='year', value='', placeholder='Enter Year')
+    |  in tournament
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    | ?
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='didCountryMakeItToFinalRound')
+    |  Has country
+    input(name='countryName', value='', placeholder='Enter Country')
+    |  made it to the final round in tournament 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    | ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='countryWinPercentage')
+    |  What is country
+    input(name='countryName', value='', placeholder='Enter Country')
+    |  's win percentage in tournament 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    | ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='countryAgainstCountryInTournament')
+    |  How has country 
+    input(name='countryNameOne', value='', placeholder='Enter Country One')
+    |  done against country 
+    input(countryName='countryNameTwo', value='', placeholder='Enter Country Two')
+    |  historically in tournament
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    | ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='hasCountryPastGroupStage')
+    |  Has country 
+    input(name='countryName', value='', placeholder='Enter Country')
+    |  ever made it past the group stages in tournament 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    | ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='whoWasOnTeamInCountry')
+    |  Who was on the team for country 
+    input(name='countryName', value='', placeholder='Enter Country')
+    |  in tournament 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    |  in year 
+    input(name='year', value='', placeholder='Enter Year')
+    |  ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='whatYearsDidPlayerPlayInTournament')
+    |  In what years did player 
+    input(name='playerName', value='', placeholder='Enter Player')
+    |  play in tournament 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    |  ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='whatYearsDidPlayerPlayInTournament')
+    |  What countries did player 
+    input(name='playerName', value='', placeholder='Enter Player')
+    |  play for? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", id='whatYearsDidPlayerPlayInTournament')
+    |  Which country won in tournament 
+    input(name='tournamentName', value='', placeholder='Enter Player')
+    |  in year 
+    input(name='year', value='', placeholder='Enter Year')
+    |  ? 
+    input(type='submit', value='Enter Query')
+
+
+

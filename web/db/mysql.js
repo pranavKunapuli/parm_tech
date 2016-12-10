@@ -109,6 +109,81 @@ var hostedMost = function (done) {
 	});
 }
 
+var hasCountryWonTournament = function (countryName, tourneyyy, done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	console.log(queryStrings.hasCountryWonTournament(countryName, tourneyyy));
+	var queries = pool.query(queryStrings.hasCountryWonTournament(countryName, tourneyyy), function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var howDidCountryDoInYearInTournament = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.howDidCountryDoInYearInTournament, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var didCountryMakeItToFinalRound = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.didCountryMakeItToFinalRound, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var countryWinPercentage = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.countryWinPercentage, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var countryAgainstCountryInTournament = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.countryAgainstCountryInTournament, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var hasCountryPastGroupStage = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.hasCountryPastGroupStage, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+
+
 module.exports = {
 	getAllThreeWins: allThreeWins,
 	getMostFinalRoundWins: mostFinalRoundWins,
@@ -117,6 +192,12 @@ module.exports = {
 	getNoWins: noWins,
 	getNoFinalsTeams: noFinalsTeams,
 	getHostedMost: hostedMost,
+	getHasCountryWonTournament: hasCountryWonTournament,
+	getHowDidCountryDoInYearInTournament: howDidCountryDoInYearInTournament,
+	getDidCountryMakeItToFinalRound: didCountryMakeItToFinalRound,
+	getCountryWinPercentage: countryWinPercentage,
+	getCountryAgainstCountryInTournament: countryAgainstCountryInTournament,
+	getHasCountryPastGroupStage: hasCountryPastGroupStage,
 	connect: connect,
 	get: get
 }

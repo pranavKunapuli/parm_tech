@@ -9,13 +9,15 @@ var noWins = require('./routes/noWins');
 var playersOnMostTeams = require('./routes/playersOnMostTeams');
 var noFinalsTeams = require('./routes/noFinalsTeams');
 var hostedMost = require('./routes/hostedMost');
+var hasCountryWonTournament = require('./routes/hasCountryWonTournament');
 // Serve static pages
-app.engine('html', require('ejs').__express);
-app.set('view engine', 'html');
-app.use(express.static(__dirname + '/public'));
+
+init_app(app);
+
+app.get('/hasCountryWonTournament', hasCountryWonTournament);
 
 app.get('/', function (req, res) {
-  res.render('index.jade');
+  res.render('index.jade', {});
 });
 
 app.use('/', allThreeWins);
@@ -25,5 +27,12 @@ app.use('/', noWins);
 app.use('/', playersOnMostTeams);
 app.use('/', noFinalsTeams);
 app.use('/', hostedMost);
+
+
+function init_app() {
+
+	app.set('views',__dirname + '/views');
+	app.set('view engine', 'jade');
+}
 
 module.exports = app;
