@@ -33,8 +33,6 @@ var howDidCountryDoInYearInTournament = require('./routes/howDidCountryDoInYearI
 init_app(app);
 
 app.get('/hasCountryWonTournament', hasCountryWonTournament);
-app.get('/didCountryMakeItToFinalRound', didCountryMakeItToFinalRound);
-app.get('/howDidCountryDoInYearInTournament', howDidCountryDoInYearInTournament);
 
 app.get('/', function (req, res) {
   res.render('index.jade', {});
