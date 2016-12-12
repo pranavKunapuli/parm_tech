@@ -117,26 +117,30 @@ var didCountryMakeItToFinalRound = function (countryName, tourneyyy) {
 var countryWinPercentage = function (countryName, tourneyyy) {
 	var cname = 'cname = \'' + countryName + '\'';
 	var tname = 'tname = \'' + tourneyyy + '\'';
-	return sequel.select().from('Competes_In') 
-	.field('COUNT(*) / ?', squel.select().from('Competes_In')
+	var innerQuery = '(' + squel.select().from('Competes_In')
 		.field('COUNT(*)')
 		.where(cname)
 		.where(tname)
-		.group('cname, tname')
-	).where(cname)
+		.group('cname, tname').toString() + ')' + 'AS count';
+	return squel.select().from('Competes_In')
+	.field('COUNT(*) / ' + innerQuery)
+	.where(cname)
 	.where(tname)
-	.where('(stage =\'Final\' AND result=\'W\') OR stage=\'Gold\')')
+	.where('(stage =\'Final\' AND result=\'W\') OR (stage=\'Gold\')')
 	.group('cname, tname').toString();
 }
 
-var countryAgainstCountryInTournament = function (countryOne, countryTwo) {
-	var cnameOne = 'cname = \'' + countryOne + '\'';
-	var cnameTwo = 'cname = \'' + countryTwo + '\'';
+var countryAgainstCountryInTournament = function (countryOne, countryTwo, tourneyyy) {
+	var cnameOne = 'C1.cname = \'' + countryOne + '\'';
+	var cnameTwo = 'C2.cname = \'' + countryTwo + '\'';
+	var whereTname = 'C1.tname = \'' + tourneyyy + '\''; 
+	var onJoin = 'Competes_In C2 ON C1.tname=C2.tname AND C1.year=C2.year AND C1.stage=C2.stage';
 	return squel.select().from('Competes_In C1')
 	.field('C1.cname AS countryOne, C2.cname AS countryTwo, C1.result AS resultOne, C2.result AS resultTwo, C1.score AS score, C1.tname AS tname, C1.year AS year')
-	.join('Competes_In C2', 'C1.tname=C2.tname AND C1.year=C2.year AND C1.stage=C2.stage')
-	.where('cnameOne')
-	.where('cnameTwo').toString();
+	.join(onJoin)
+	.where(cnameOne)
+	.where(cnameTwo)
+	.where(whereTname).toString();
 }
 
 var hasCountryPastGroupStage = function (countryName) {

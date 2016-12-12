@@ -5,13 +5,13 @@ block content
     |  #{title}:
   p
     table
-    	thead
-    		tr 
-    			th Country 1 
-    			td &nbsp
-    			th Country 2
-    			td &nbsp
-    			th Country 1 Result
+      thead
+        tr 
+          th Country 1 
+          td &nbsp
+          th Country 2
+          td &nbsp
+          th Country 1 Result
           td &nbsp
           th Country 2 Result
           td &nbsp 
@@ -22,8 +22,13 @@ block content
         -for (var inx = 0; inx < results.length; inx++)
           tr
             td=results[inx].countryOne
+             td &nbsp
             td=results[inx].countryTwo
+            td &nbsp
             td=results[inx].resultOne
+            td &nbsp
             td=results[inx].resultTwo
+            td &nbsp
             td=results[inx].score
+            td &nbsp
             td=results[inx].year

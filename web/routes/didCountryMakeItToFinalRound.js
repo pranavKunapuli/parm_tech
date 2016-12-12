@@ -10,9 +10,9 @@ router.get('/didCountryMakeItToFinalRound', function (req, res, next) {
 			var title = 'Did ' + req.query.countryName + ' make it to a final round in ' + req.query.tournamentName + '?';
 			var json = {};
 			if (rows.length == 0) {
-				json = {result: false}
+				json = "No"
 			} else {
-				json = {result: true}
+				json = "Yes"
 			}
 			res.render('trueFalse.jade', {title: title, results: json});
 		}

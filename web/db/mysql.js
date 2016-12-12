@@ -135,10 +135,10 @@ var howDidCountryDoInYearInTournament = function (countryName, year, tourneyyy, 
 	});
 }
 
-var didCountryMakeItToFinalRound = function (done) {
+var didCountryMakeItToFinalRound = function (countryName, tournamentName, done) {
 	var pool = state.pool; 
 	if (!pool) return done("Missing database connection.");
-	var queries = pool.query(queryStrings.didCountryMakeItToFinalRound, function (err, rows, fields) {
+	var queries = pool.query(queryStrings.didCountryMakeItToFinalRound(countryName, tournamentName), function (err, rows, fields) {
 		if (err) {
 			done(err);
 		} else {
@@ -147,10 +147,11 @@ var didCountryMakeItToFinalRound = function (done) {
 	});
 }
 
-var countryWinPercentage = function (done) {
+var countryWinPercentage = function (countryName, tourneyyy, done) {
 	var pool = state.pool; 
 	if (!pool) return done("Missing database connection.");
-	var queries = pool.query(queryStrings.countryWinPercentage, function (err, rows, fields) {
+	console.log(queryStrings.countryWinPercentage(countryName, tourneyyy))
+	var queries = pool.query(queryStrings.countryWinPercentage(countryName, tourneyyy), function (err, rows, fields) {
 		if (err) {
 			done(err);
 		} else {
@@ -159,10 +160,11 @@ var countryWinPercentage = function (done) {
 	});
 }
 
-var countryAgainstCountryInTournament = function (done) {
+var countryAgainstCountryInTournament = function (countryNameOne, countryNameTwo, tourneyyy, done) {
 	var pool = state.pool; 
 	if (!pool) return done("Missing database connection.");
-	var queries = pool.query(queryStrings.countryAgainstCountryInTournament, function (err, rows, fields) {
+	console.log(queryStrings.countryAgainstCountryInTournament(countryNameOne, countryNameTwo, tourneyyy))
+	var queries = pool.query(queryStrings.countryAgainstCountryInTournament(countryNameOne, countryNameTwo, tourneyyy), function (err, rows, fields) {
 		if (err) {
 			done(err);
 		} else {
