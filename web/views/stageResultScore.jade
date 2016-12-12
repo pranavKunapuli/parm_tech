@@ -1,0 +1,20 @@
+extend layout
+
+block content
+  p
+    |  #{title}:
+  p
+    table
+    	thead
+    		tr 
+    			th Stage
+    			td &nbsp
+    			th Result
+    			td &nbsp
+    			th Score
+      tbody 
+        -for (var inx = 0; inx < results.length; inx++)
+          tr
+            td=results[inx].stage
+            td=results[inx].result
+            td=results[inx].score

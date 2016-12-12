@@ -10,6 +10,7 @@ var playersOnMostTeams = require('./routes/playersOnMostTeams');
 var noFinalsTeams = require('./routes/noFinalsTeams');
 var hostedMost = require('./routes/hostedMost');
 var hasCountryWonTournament = require('./routes/hasCountryWonTournament');
+<<<<<<< HEAD
 var howDidCountryDoInYearInTournament = require('./routes/howDidCountryDoInYearInTournament');
 var didCountryMakeItToFinalRound = require('./routes/didCountryMakeItToFinalRound');
 var countryWinPercentage = require('./routes/countryWinPercentage');
@@ -23,11 +24,17 @@ var fromWhichCountryIsPlayer = require('./routes/fromWhichCountryIsPlayer');
 var howManyTournamentsHasCoachWon = require('./routes/howManyTournamentsHasCoachWon');
 var howManyTeamsHasCoachWorkedFor = require('./routes/howManyTeamsHasCoachWorkedFor');
 
+=======
+var didCountryMakeItToFinalRound = require('./routes/didCountryMakeItToFinalRound');
+var howDidCountryDoInYearInTournament = require('./routes/howDidCountryDoInYearInTournament');
+>>>>>>> 2a0c0edaa472b84469585876b92b881f670416ee
 // Serve static pages
 
 init_app(app);
 
 app.get('/hasCountryWonTournament', hasCountryWonTournament);
+app.get('/didCountryMakeItToFinalRound', didCountryMakeItToFinalRound);
+app.get('/howDidCountryDoInYearInTournament', howDidCountryDoInYearInTournament);
 
 app.get('/', function (req, res) {
   res.render('index.jade', {});
