@@ -10,11 +10,15 @@ var playersOnMostTeams = require('./routes/playersOnMostTeams');
 var noFinalsTeams = require('./routes/noFinalsTeams');
 var hostedMost = require('./routes/hostedMost');
 var hasCountryWonTournament = require('./routes/hasCountryWonTournament');
+var didCountryMakeItToFinalRound = require('./routes/didCountryMakeItToFinalRound');
+var howDidCountryDoInYearInTournament = require('./routes/howDidCountryDoInYearInTournament');
 // Serve static pages
 
 init_app(app);
 
 app.get('/hasCountryWonTournament', hasCountryWonTournament);
+app.get('/didCountryMakeItToFinalRound', didCountryMakeItToFinalRound);
+app.get('/howDidCountryDoInYearInTournament', howDidCountryDoInYearInTournament);
 
 app.get('/', function (req, res) {
   res.render('index.jade', {});

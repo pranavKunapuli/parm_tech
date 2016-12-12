@@ -1,0 +1,12 @@
+extend layout
+
+block content
+  p
+    |  #{title}:
+  p
+    table
+      tbody 
+        -for (var inx = 0; inx < results.length; inx++)
+          tr
+            td=results[inx].cname
+            td=results[inx].wins

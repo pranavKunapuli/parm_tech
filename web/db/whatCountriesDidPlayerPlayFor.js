@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 var queries = require('../db/queries');
 
-router.get('/mostFinalRoundWins', function (req, res, next) {
-	queries.getMostFinalRoundWins(function (err, rows) {
-		console.log(err);
+router.get('/whatCountriesDidPlayerPlayFor', function (req, res, next) {
+	var pname = req.query.playerName;
+	queries.whatCountriesDidPlayerPlayFor(pname, function (err, rows) {
 		if (err) {
 			next(err);
 		} else {
-			var title = 'Teams With The Most Tournaments Wins';
+			var title = 'What country(ies) did ' + pname + ' play for?';
 			res.render('displayCnames.jade', {title: title, results: rows});
 		}
 	});

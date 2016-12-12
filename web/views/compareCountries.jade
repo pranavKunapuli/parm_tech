@@ -1,0 +1,29 @@
+extend layout
+
+block content
+  p
+    |  #{title}:
+  p
+    table
+    	thead
+    		tr 
+    			th Country 1 
+    			td &nbsp
+    			th Country 2
+    			td &nbsp
+    			th Country 1 Result
+          td &nbsp
+          th Country 2 Result
+          td &nbsp 
+          th Score
+          td &nbsp
+          th Year
+      tbody 
+        -for (var inx = 0; inx < results.length; inx++)
+          tr
+            td=results[inx].countryOne
+            td=results[inx].countryTwo
+            td=results[inx].resultOne
+            td=results[inx].resultTwo
+            td=results[inx].score
+            td=results[inx].year
