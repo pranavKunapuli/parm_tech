@@ -72,9 +72,9 @@ var queryCountryAgainstCountryInTournament = function (countryNameOne, countryNa
 	}
 )};
 
-var queryHasCountryPastGroupStage = function (countryName, tournamentName, next) {
+var queryHasCountryPastGroupStage = function (countryName, next) {
 	db.connect(function() {
-		db.getHasCountryPastGroupStage(countryName, tournamentName, next);
+		db.getHasCountryPastGroupStage(countryName, next);
 	}
 )};
 
@@ -92,7 +92,7 @@ var queryWhatYearsDidPlayerPlayInTournament = function (playerName, tournamentNa
 
 var queryWhatCountriesDidPlayerPlayFor = function (playerName, next) {
 	db.connect(function() {
-		db.getWhatCountriesDidPlayerPlayFor(playerName, next);
+		db.getWhatCountriesDidPlayersPlayFor(playerName, next);
 	}
 )};
 

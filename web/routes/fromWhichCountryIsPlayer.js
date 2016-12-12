@@ -3,7 +3,7 @@ var router = express.Router();
 var queries = require('../db/queries');
 
 router.get('/fromWhichCountryIsPlayer', function (req, res, next) {
-	queries.getfromWhichCountryIsPlayer(function (err, rows) {
+	queries.getFromWhichCountryIsPlayer(req.query.playerName.toUpperCase(), function (err, rows) {
 		if (err) {
 			next(err);
 		} else {

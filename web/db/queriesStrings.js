@@ -152,13 +152,14 @@ var hasCountryPastGroupStage = function (countryName) {
 	.where('tname=\'FIFA\'').toString();
 }
 
-var whoWasOnTeamInCountry = function (countryName, year, tourneyyy) {
+var whoWasOnTeamInCountry = function (countryName, tourneyyy, year) {
 	var cname = 'P.cname = \'' + countryName + '\'';
 	var tname = 'C.tname = \'' + tourneyyy + '\'';
 	var year = 'P.year =' + year;
-	return squel.select().from('Competes_In')
-	.field('DISTINCT P.pname')
-	.join('Competes_In C', 'P.cname=C.cname AND P.year=C.year')
+	var onJoin = 'Competes_In C ON P.cname=C.cname AND P.year=C.year';
+	return squel.select().from('Plays_For P')
+	.field('DISTINCT P.pname AS pname')
+	.join(onJoin)
 	.where(cname)
 	.where(tname)
 	.where(year).toString();
@@ -167,17 +168,18 @@ var whoWasOnTeamInCountry = function (countryName, year, tourneyyy) {
 var whatYearsDidPlayerPlayInTournament = function (player, tourneyyy) {
 	var player = 'P.pname = \'' + player + '\'';
 	var tname = 'C.tname = \'' + tourneyyy + '\'';
-	return squel.select().from('Plays_For')
+	var joinOn = 'Competes_In C ON P.cname = C.cname AND P.year=C.year';
+	return squel.select().from('Plays_For P')
 	.field('DISTINCT P.pname AS player, C.year AS year')
-	.join('Competes_In', 'P.cname = C.cname AND P.year=C.year')
+	.join(joinOn)
 	.where(tname)
 	.where(player).toString();
 }
 
 var whatCountriesDidPlayerPlayFor = function (player) {
-	var player = 'P.pname = \'' + player + '\'';
+	var player = 'pname = \'' + player + '\'';
 	return squel.select().from('Plays_For')
-	.field('DISTINCT pname AS Player, cname AS Country')
+	.field('DISTINCT pname AS Player, cname')
 	.where(player).toString();
 }
 
@@ -201,9 +203,10 @@ var fromWhichCountryIsPlayer = function (player) {
 
 var howManyTournamentsHasCoachWon = function (coach) {
 	var coach = 'C.coname = \'' + coach + '\'';
-	return sequel.select().from('Coaches C')
+	var joinOn = 'Competes_In CI ON C.cname=CI.cname AND C.year=CI.year';
+	return squel.select().from('Coaches C')
 	.field('C.coname, CI.cname, COUNT(*) as wins')
-	.join('Competes_In CI', 'C.cname=CI.cname AND C.year=CI.year')
+	.join(joinOn)
 	.where(coach)
 	.where('((CI.stage=\'Final\' AND CI.result=\'W\') OR (CI.stage=\'Gold\'))')
 	.group('C.coname, C.cname').toString();
@@ -211,7 +214,7 @@ var howManyTournamentsHasCoachWon = function (coach) {
 
 var howManyTeamsHasCoachWorkedFor = function (coach) {
 	var coach = 'coname = \'' + coach + '\'';
-	return sequel.select().from('Coaches')
+	return squel.select().from('Coaches')
 	.field('coname, cname, COUNT(*) AS years')
 	.group('coname, cname')
 	.having(coach).toString();

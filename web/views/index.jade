@@ -57,8 +57,7 @@ block content
   form(name="add-estimation", method="get", action='/hasCountryPastGroupStage')
     |  Has country 
     input(name='countryName', value='', placeholder='Enter Country')
-    |  ever made it past the group stages in tournament 
-    input(name='tournamentName', value='', placeholder='Enter Tournament')
+    |  ever made it past the group stages in FIFA
     | ? 
     input(type='submit', value='Enter Query')
   p
@@ -87,23 +86,23 @@ block content
     input(type='submit', value='Enter Query')
   p
   form(name="add-estimation", method="get", action='/whatCountryWonInTournamentInYear')
-    |  Which country won in tournament 
-    input(name='tournamentName', value='', placeholder='Enter Player')
+    |  Which country won 
+    input(name='tournamentName', value='', placeholder='Enter Tournament')
     |  in year 
     input(name='year', value='', placeholder='Enter Year')
     |  ? 
     input(type='submit', value='Enter Query')
   p
   form(name="add-estimation", method="get", action='/fromWhichCountryIsPlayer')
-    |  Which country is player
+    |  Which country is 
     input(name='playerName', value='', placeholder='Enter Player')
-    |  from ? 
+    |   from ? 
     input(type='submit', value='Enter Query')
   p
   form(name="add-estimation", method="get", action='/howManyTournamentsHasCoachWon')
-    |  How many tournaments has coach
+    |  How many tournaments has 
     input(name='coachName', value='', placeholder='Enter Coach')
-    |  won? 
+    |   won? 
     input(type='submit', value='Enter Query')
   p
   form(name="add-estimation", method="get", action='/howManyTeamsHasCoachWorkedFor')
