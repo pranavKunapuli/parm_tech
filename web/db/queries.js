@@ -54,6 +54,73 @@ var queryHowDidCountryDoInYearInTournament = function (countryName, year, tourna
 	}
 )};
 
+var queryDidCountryMakeItToFinalRound = function (countryName, tournamentName, next) {
+	db.connect(function() {
+		db.getDidCountryMakeItToFinalRound(countryName, tournamentName, next);
+	}
+)};
+
+var queryCountryWinPercentage = function (countryName, tournamentName, next) {
+	db.connect(function() {
+		db.getCountryWinPercentage(countryName, tournamentName, next);
+	}
+)};
+
+var queryCountryAgainstCountryInTournament = function (countryNameOne, countryNameTwo, tournamentName, next) {
+	db.connect(function() {
+		db.getCountryAgainstCountryInTournament(countryName, tournamentName, next);
+	}
+)};
+
+var queryHasCountryPastGroupStage = function (countryName, tournamentName, next) {
+	db.connect(function() {
+		db.getHasCountryPastGroupStage(countryName, tournamentName, next);
+	}
+)};
+
+var queryWhoWasOnTeamInCountry = function (countryName, tournamentName, year, next) {
+	db.connect(function() {
+		db.getWhoWasOnTeamInCountry(countryName, tournamentName, year, next);
+	}
+)};
+
+var queryWhatYearsDidPlayerPlayInTournament = function (playerName, tournamentName, next) {
+	db.connect(function() {
+		db.getWhatYearsDidPlayerPlayInTournament(tournamentName, year, next);
+	}
+)};
+
+var queryWhatCountriesDidPlayerPlayFor = function (playerName, next) {
+	db.connect(function() {
+		db.getWhatCountriesDidPlayerPlayFor(playerName, next);
+	}
+)};
+
+var queryWhatCountryWonInTournamentInYear = function (tournamentName, year, next) {
+	db.connect(function() {
+		db.getWhatCountryWonInTournamentInYear(tournamentName, year, next);
+	}
+)};
+
+var queryFromWhichCountryIsPlayer = function (playerName, next) {
+	db.connect(function() {
+		db.getFromWhichCountryIsPlayer(tournamentName, year, next);
+	}
+)};
+
+var queryHowManyTournamentsHasCoachWon = function (coachName, next) {
+	db.connect(function() {
+		db.getHowManyTournamentsHasCoachWon(coachName, next);
+	}
+)};
+
+var queryHowManyTeamsHasCoachWorkedFor = function (coachName, next) {
+	db.connect(function() {
+		db.getHowManyTeamsHasCoachWorkedFor(coachName, next);
+	}
+)};
+
+
 module.exports = {
     getAllThreeWins: queryAllThreeWins,
     getMostFinalRoundWins: queryMostFinalRoundWins,
@@ -63,5 +130,26 @@ module.exports = {
     getHostedMost: queryHostedMost,
     getHasCountryWonTournament: queryHasCountryWonTournament,
     getHowDidCountryDoInYearInTournament: queryHowDidCountryDoInYearInTournament,
+    getDidCountryMakeItToFinalRound: queryDidCountryMakeItToFinalRound,
+    getCountryWinPercentage: queryCountryWinPercentage,
+    getCountryAgainstCountryInTournament: queryCountryAgainstCountryInTournament,
+    getHasCountryPastGroupStage: queryHasCountryPastGroupStage,
+    getWhoWasOnTeamInCountry: queryWhoWasOnTeamInCountry,
+    getWhatYearsDidPlayerPlayInTournament: queryWhatYearsDidPlayerPlayInTournament,
+    getWhatCountriesDidPlayerPlayFor: queryWhatCountriesDidPlayerPlayFor,
+    getWhatCountryWonInTournamentInYear: queryWhatCountryWonInTournamentInYear,
+    getFromWhichCountryIsPlayer: queryFromWhichCountryIsPlayer,
+    getHowManyTournamentsHasCoachWon: queryHowManyTournamentsHasCoachWon,
+    getHowManyTeamsHasCoachWorkedFor: queryHowManyTeamsHasCoachWorkedFor,
     getNoWins: queryNoWins
 }
+
+
+
+
+
+
+
+
+
+

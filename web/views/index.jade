@@ -18,7 +18,7 @@ block content
     | ?    
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='howDidCountryDoInYearInTournament')
+  form(name="add-estimation", method="get", action='/howDidCountryDoInYearInTournament')
     |  How did country
     input(name='countryName', value='', placeholder='Enter Country')
     |  do in year
@@ -28,7 +28,7 @@ block content
     | ?
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='didCountryMakeItToFinalRound')
+  form(name="add-estimation", method="get", action='/didCountryMakeItToFinalRound')
     |  Has country
     input(name='countryName', value='', placeholder='Enter Country')
     |  made it to the final round in tournament 
@@ -36,7 +36,7 @@ block content
     | ? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='countryWinPercentage')
+  form(name="add-estimation", method="get", action='/countryWinPercentage')
     |  What is country
     input(name='countryName', value='', placeholder='Enter Country')
     |  's win percentage in tournament 
@@ -44,17 +44,17 @@ block content
     | ? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='countryAgainstCountryInTournament')
+  form(name="add-estimation", method="get", action='/countryAgainstCountryInTournament')
     |  How has country 
     input(name='countryNameOne', value='', placeholder='Enter Country One')
     |  done against country 
-    input(countryName='countryNameTwo', value='', placeholder='Enter Country Two')
+    input(name='countryNameTwo', value='', placeholder='Enter Country Two')
     |  historically in tournament
     input(name='tournamentName', value='', placeholder='Enter Tournament')
     | ? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='hasCountryPastGroupStage')
+  form(name="add-estimation", method="get", action='/hasCountryPastGroupStage')
     |  Has country 
     input(name='countryName', value='', placeholder='Enter Country')
     |  ever made it past the group stages in tournament 
@@ -62,7 +62,7 @@ block content
     | ? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='whoWasOnTeamInCountry')
+  form(name="add-estimation", method="get", action='/whoWasOnTeamInCountry')
     |  Who was on the team for country 
     input(name='countryName', value='', placeholder='Enter Country')
     |  in tournament 
@@ -72,7 +72,7 @@ block content
     |  ? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='whatYearsDidPlayerPlayInTournament')
+  form(name="add-estimation", method="get", action='/whatYearsDidPlayerPlayInTournament')
     |  In what years did player 
     input(name='playerName', value='', placeholder='Enter Player')
     |  play in tournament 
@@ -80,19 +80,35 @@ block content
     |  ? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='whatYearsDidPlayerPlayInTournament')
+  form(name="add-estimation", method="get", action='/whatCountriesDidPlayerPlayFor')
     |  What countries did player 
     input(name='playerName', value='', placeholder='Enter Player')
     |  play for? 
     input(type='submit', value='Enter Query')
   p
-  form(name="add-estimation", method="get", id='whatYearsDidPlayerPlayInTournament')
+  form(name="add-estimation", method="get", action='/whatCountryWonInTournamentInYear')
     |  Which country won in tournament 
     input(name='tournamentName', value='', placeholder='Enter Player')
     |  in year 
     input(name='year', value='', placeholder='Enter Year')
     |  ? 
     input(type='submit', value='Enter Query')
-
-
+  p
+  form(name="add-estimation", method="get", action='/fromWhichCountryIsPlayer')
+    |  Which country is player
+    input(name='playerName', value='', placeholder='Enter Player')
+    |  from ? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", action='/howManyTournamentsHasCoachWon')
+    |  How many tournaments has coach
+    input(name='coachName', value='', placeholder='Enter Coach')
+    |  won? 
+    input(type='submit', value='Enter Query')
+  p
+  form(name="add-estimation", method="get", action='/howManyTeamsHasCoachWorkedFor')
+    |  How many teams has coach
+    input(name='coachName', value='', placeholder='Enter Coach')
+    |  worked for? 
+    input(type='submit', value='Enter Query')
 

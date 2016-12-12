@@ -182,7 +182,89 @@ var hasCountryPastGroupStage = function (done) {
 	});
 }
 
+var whoWasOnTeamInCountry = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.whoWasOnTeamInCountry, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
 
+var whatYearsDidPlayerPlayInTournament = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.whatYearsDidPlayerPlayInTournament, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var whatCountriesDidPlayerPlayFor = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.whatCountriesDidPlayerPlayFor, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var whatCountryWonInTournamentInYear = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.whatCountryWonInTournamentInYear, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var fromWhichCountryIsPlayer = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.fromWhichCountryIsPlayer, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var howManyTournamentsHasCoachWon = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.howManyTournamentsHasCoachWon, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
+
+var howManyTeamsHasCoachWorkedFor = function (done) {
+	var pool = state.pool; 
+	if (!pool) return done("Missing database connection.");
+	var queries = pool.query(queryStrings.howManyTeamsHasCoachedWorkedFor, function (err, rows, fields) {
+		if (err) {
+			done(err);
+		} else {
+			done(null, rows);
+		}
+	});
+}
 
 module.exports = {
 	getAllThreeWins: allThreeWins,
@@ -198,6 +280,14 @@ module.exports = {
 	getCountryWinPercentage: countryWinPercentage,
 	getCountryAgainstCountryInTournament: countryAgainstCountryInTournament,
 	getHasCountryPastGroupStage: hasCountryPastGroupStage,
+	getWhoWasOnTeamInCountry: whoWasOnTeamInCountry,
+	getWhatYearsDidPlayerPlayInTournament: whatYearsDidPlayerPlayInTournament,
+	getWhatCountriesDidPlayersPlayFor: whatCountriesDidPlayerPlayFor,
+	getWhatCountryWonInTournamentInYear: whatCountryWonInTournamentInYear,
+	getFromWhichCountryIsPlayer: fromWhichCountryIsPlayer,
+	getHowManyTournamentsHasCoachWon: howManyTournamentsHasCoachWon,
+	getHowManyTeamsHasCoachWorkedFor: howManyTeamsHasCoachWorkedFor,
 	connect: connect,
 	get: get
 }
+
