@@ -92,12 +92,15 @@ var hasCountryWonTournament = function (countryName, tourneyyy) {
 
 var howDidCountryDoInYearInTournament = function (countryName, year, tourneyyy) {
 	var cname = 'cname = \'' + countryName + '\'';
-	var year = 'year = ' + year;
+	var yearString = 'year = ' + year;
 	var tname = 'tname = \'' + tourneyyy + '\'';
+	console.log(countryName);
+	console.log(year);
+	console.log(tourneyyy);
 	return squel.select().from('Competes_In')
 	.field('cname, stage, result, score')
 	.where(cname)
-	.where(year)
+	.where(yearString)
 	.where(tname).toString();
 }
 

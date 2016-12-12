@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var uuid = require('node-uuid');
 var db = require('./db/queries');
+var bodyParser = require('body-parser')
 var allThreeWins = require('./routes/allThreeWins');
 var mostFinalRoundWins = require('./routes/mostFinalRoundWins');
 var leastFinalRoundWins = require('./routes/leastFinalRoundWins');
@@ -25,6 +26,8 @@ var howManyTeamsHasCoachWorkedFor = require('./routes/howManyTeamsHasCoachWorked
 // Serve static pages
 
 init_app(app);
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/hasCountryWonTournament', hasCountryWonTournament);
 

@@ -68,7 +68,7 @@ var queryCountryWinPercentage = function (countryName, tournamentName, next) {
 
 var queryCountryAgainstCountryInTournament = function (countryNameOne, countryNameTwo, tournamentName, next) {
 	db.connect(function() {
-		db.getCountryAgainstCountryInTournament(countryName, tournamentName, next);
+		db.getCountryAgainstCountryInTournament(countryNameOne, countryNameTwo, tournamentName, next);
 	}
 )};
 
@@ -86,7 +86,7 @@ var queryWhoWasOnTeamInCountry = function (countryName, tournamentName, year, ne
 
 var queryWhatYearsDidPlayerPlayInTournament = function (playerName, tournamentName, next) {
 	db.connect(function() {
-		db.getWhatYearsDidPlayerPlayInTournament(tournamentName, year, next);
+		db.getWhatYearsDidPlayerPlayInTournament(playerName, tournamentName, next);
 	}
 )};
 
@@ -104,7 +104,7 @@ var queryWhatCountryWonInTournamentInYear = function (tournamentName, year, next
 
 var queryFromWhichCountryIsPlayer = function (playerName, next) {
 	db.connect(function() {
-		db.getFromWhichCountryIsPlayer(tournamentName, year, next);
+		db.getFromWhichCountryIsPlayer(playerName, next);
 	}
 )};
 

@@ -112,7 +112,6 @@ var hostedMost = function (done) {
 var hasCountryWonTournament = function (countryName, tourneyyy, done) {
 	var pool = state.pool; 
 	if (!pool) return done("Missing database connection.");
-	console.log(queryStrings.hasCountryWonTournament(countryName, tourneyyy));
 	var queries = pool.query(queryStrings.hasCountryWonTournament(countryName, tourneyyy), function (err, rows, fields) {
 		if (err) {
 			done(err);
@@ -122,10 +121,12 @@ var hasCountryWonTournament = function (countryName, tourneyyy, done) {
 	});
 }
 
-var howDidCountryDoInYearInTournament = function (done) {
+var howDidCountryDoInYearInTournament = function (countryName, year, tourneyyy, done) {
 	var pool = state.pool; 
 	if (!pool) return done("Missing database connection.");
-	var queries = pool.query(queryStrings.howDidCountryDoInYearInTournament, function (err, rows, fields) {
+	console.log(countryName + " " +  year + " " + tourneyyy);
+	console.log(queryStrings.howDidCountryDoInYearInTournament)
+	var queries = pool.query(queryStrings.howDidCountryDoInYearInTournament(countryName, year, tourneyyy), function (err, rows, fields) {
 		if (err) {
 			done(err);
 		} else {

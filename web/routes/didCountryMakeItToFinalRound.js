@@ -14,7 +14,7 @@ router.get('/didCountryMakeItToFinalRound', function (req, res, next) {
 			} else {
 				json = {result: true}
 			}
-			res.render('trueFalse.jade', {title: title, results: json);
+			res.render('trueFalse.jade', {title: title, results: json});
 		}
 	});
 });
