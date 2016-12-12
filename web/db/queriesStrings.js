@@ -185,14 +185,14 @@ var whatCountryWonInTournamentInYear = function (tourneyyy, year) {
 	.where(win).toString();
 }
 
-var whatCountriesDidPlayerPlayFor = function (player) {
+var fromWhichCountryIsPlayer = function (player) {
 	var player = 'pname = \'' + player + '\'';
 	return squel.select().from('Plays_For')
 	.field('DISTINCT pname, cname')
 	.where(player).toString();
 }
 
-var coachWins = function (coach) {
+var howManyTournamentsHasCoachWon = function (coach) {
 	var coach = 'C.coname = \'' + coach + '\'';
 	return sequel.select().from('Coaches C')
 	.field('C.coname, CI.cname, COUNT(*) as wins')
@@ -202,7 +202,7 @@ var coachWins = function (coach) {
 	.group('C.coname, C.cname').toString();
 }
 
-var teamsPerCoach = function (coach) {
+var howManyTeamsHasCoachWorkedFor = function (coach) {
 	var coach = 'coname = \'' + coach + '\'';
 	return sequel.select().from('Coaches')
 	.field('coname, cname, COUNT(*) AS years')
@@ -228,7 +228,7 @@ module.exports = {
 	whatYearsDidPlayerPlayInTournament: whatYearsDidPlayerPlayInTournament,
 	whatCountriesDidPlayerPlayFor: whatCountriesDidPlayerPlayFor,
 	whatCountryWonInTournamentInYear: whatCountryWonInTournamentInYear,
-	whatCountriesDidPlayerPlayFor: whatCountriesDidPlayerPlayFor,
-	coachWins: coachWins, 
-	teamsPerCoach: teamsPerCoach
+	fromWhichCountryIsPlayer: fromWhichCountryIsPlayer,
+	howManyTournamentsHasCoachWon: howManyTournamentsHasCoachWon, 
+	howManyTeamsHasCoachWorkedFor: howManyTeamsHasCoachWorkedFor
 }
