@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var uuid = require('node-uuid');
 var db = require('./db/queries');
 var bodyParser = require('body-parser');
 var allThreeWins = require('./routes/allThreeWins');
@@ -57,7 +56,6 @@ app.use('/', howManyTournamentsHasCoachWon);
 app.use('/', howManyTeamsHasCoachWorkedFor);
 
 function init_app() {
-
 	app.set('views',__dirname + '/views');
 	app.set('view engine', 'jade');
 }
