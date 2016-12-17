@@ -1,6 +1,6 @@
 # parm_tech
 
-To run the web app: 
+To run the web app (run all commands in the web directory): 
 
 Install Node.js and Express.js. 
 
