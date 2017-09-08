@@ -1,5 +1,7 @@
 # parm_tech
+Parm_Tech amalgamates different sources of soccer information obtained through web scrapers and presents the information in a queriable web interface.
 
+## Installation
 To run the web app (run all commands in the web directory): 
 
 Install Node.js. 
